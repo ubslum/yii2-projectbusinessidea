@@ -9,7 +9,7 @@ use Yii;
  *
  * @property int $id
  * @property string $name
- * @property string $date_created
+ * @property int $date_created
  * @property string $owner_name
  * @property string $owner_email
  * @property string $owner_phone
@@ -32,11 +32,9 @@ class ProjectBusinessIdea extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'owner_name', 'owner_email'], 'required'],
-            [['date_created'], 'safe'],
-            [['points', 'status'], 'integer'],
+            [['name'], 'required'],
+            [['date_created', 'points', 'status'], 'integer'],
             [['name', 'owner_name', 'owner_email'], 'string', 'max' => 255],
-            [['owner_email'], 'email'],
             [['owner_phone'], 'string', 'max' => 20],
         ];
     }
@@ -48,22 +46,13 @@ class ProjectBusinessIdea extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Dự án',
-            'date_created' => 'Ngày',
-            'owner_name' => 'Tên',
-            'owner_email' => 'Email',
-            'owner_phone' => 'Số điện thoại',
-            'points' => 'Điểm',
-            'status' => 'Tình trạng',
+            'name' => 'Name',
+            'date_created' => 'Date Created',
+            'owner_name' => 'Owner Name',
+            'owner_email' => 'Owner Email',
+            'owner_phone' => 'Owner Phone',
+            'points' => 'Points',
+            'status' => 'Status',
         ];
-    }
-
-    public function beforeSave($insert) {
-        if ($insert) {
-            $this->date_created = date('Y-m-d H:i:s');
-            $this->points = 0;
-            $this->status = 0;
-        }
-        return parent::beforeSave($insert);
     }
 }

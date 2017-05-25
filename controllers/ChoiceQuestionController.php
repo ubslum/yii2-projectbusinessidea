@@ -3,20 +3,16 @@
 namespace ubslum\projectbusinessidea\controllers;
 
 use Yii;
-use ubslum\projectbusinessidea\models\ProjectBusinessIdea;
-use ubslum\projectbusinessidea\models\ProjectBusinessIdeaSearch;
+use ubslum\projectbusinessidea\models\ChoiceQuestion;
+use ubslum\projectbusinessidea\models\ChoiceQuestionSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
-use app\backend\components\BackendController;
-use yii\filters\AccessControl;
-
-
 /**
- * DefaultController implements the CRUD actions for ProjectBusinessIdea model.
+ * ChoiceQuestionController implements the CRUD actions for ChoiceQuestion model.
  */
-class BackendProjectController extends BackendController
+class ChoiceQuestionController extends Controller
 {
     /**
      * @inheritdoc
@@ -24,31 +20,22 @@ class BackendProjectController extends BackendController
     public function behaviors()
     {
         return [
-            'access' => [
-                'class' => AccessControl::className(),
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['project choice question manage'],
-                    ],
-                ],
-            ],
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'delete' => ['post'],
+                    'delete' => ['POST'],
                 ],
             ],
         ];
     }
 
     /**
-     * Lists all ProjectBusinessIdea models.
+     * Lists all ChoiceQuestion models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ProjectBusinessIdeaSearch();
+        $searchModel = new ChoiceQuestionSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -58,7 +45,7 @@ class BackendProjectController extends BackendController
     }
 
     /**
-     * Displays a single ProjectBusinessIdea model.
+     * Displays a single ChoiceQuestion model.
      * @param integer $id
      * @return mixed
      */
@@ -70,13 +57,13 @@ class BackendProjectController extends BackendController
     }
 
     /**
-     * Creates a new ProjectBusinessIdea model.
+     * Creates a new ChoiceQuestion model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new ProjectBusinessIdea();
+        $model = new ChoiceQuestion();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -88,7 +75,7 @@ class BackendProjectController extends BackendController
     }
 
     /**
-     * Updates an existing ProjectBusinessIdea model.
+     * Updates an existing ChoiceQuestion model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -107,7 +94,7 @@ class BackendProjectController extends BackendController
     }
 
     /**
-     * Deletes an existing ProjectBusinessIdea model.
+     * Deletes an existing ChoiceQuestion model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -120,15 +107,15 @@ class BackendProjectController extends BackendController
     }
 
     /**
-     * Finds the ProjectBusinessIdea model based on its primary key value.
+     * Finds the ChoiceQuestion model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return ProjectBusinessIdea the loaded model
+     * @return ChoiceQuestion the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = ProjectBusinessIdea::findOne($id)) !== null) {
+        if (($model = ChoiceQuestion::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
