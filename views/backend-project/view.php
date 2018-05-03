@@ -7,7 +7,7 @@ use yii\widgets\DetailView;
 /* @var $model app\models\ProjectBusinessIdea */
 
 $this->title = $model->name;
-$this->params['breadcrumbs'][] = ['label' => 'Project Business Ideas', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Ý tưởng', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="project-business-idea-view">
@@ -15,8 +15,8 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
+        <?= Html::a('Cập nhật', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+        <?= Html::a('Xóa', ['delete', 'id' => $model->id], [
             'class' => 'btn btn-danger',
             'data' => [
                 'confirm' => 'Are you sure you want to delete this item?',
@@ -35,7 +35,14 @@ $this->params['breadcrumbs'][] = $this->title;
             'owner_email:email',
             'owner_phone',
             'points',
-            'status',
+//            'status',
+            [
+                'attribute' => 'link',
+                'format' => 'raw',
+                'value' => Html::a($model->name, ['default/view', 'id' => $model->id, 't' => strtotime($model->date_created)], ['target' => '_blank']),
+                'contentOptions' => ['class' => 'bg-red'],     // HTML attributes to customize value tag
+                'captionOptions' => ['tooltip' => 'Tooltip'],  // HTML attributes to customize label tag
+            ],
         ],
     ]) ?>
 

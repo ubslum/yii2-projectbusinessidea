@@ -3,6 +3,7 @@
 use yii\bootstrap\Tabs;
 use yii\helpers\Html;
 use yii\grid\GridView;
+use yii\helpers\Url;
 
 
 /* @var $this yii\web\View */
@@ -30,10 +31,11 @@ $this->registerCss("label { width: 100%; }");
             'clientOptions' => ['collapsible' => false],
         ]);
         ?>
-                <a class="btn btn-primary btnPrevious" >Previous</a>
-                <a class="btn btn-primary btnNext" >Next</a>
+                <div style="display: block; width: 100%; text-align: center;">
+                    <a class="btn btn-default btnPrevious" style="margin: 20px; display: none; text-decoration: none;" >Trở lại</a>
+                    <a class="btn btn-default btnNext" style="margin: 20px; text-decoration: none;" >Bắt đầu</a>
+                </div>
             </div>
         </div>
     </div>
-
 </section>

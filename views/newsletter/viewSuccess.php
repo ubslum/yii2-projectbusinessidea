@@ -10,11 +10,10 @@ use app\widgets\Alert;
 /* @var $searchModel app\models\ProjectBusinessIdeaSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Project Business Ideas';
+$this->title = 'Đăng ký nhận quà';
 $this->params['breadcrumbs'][] = $this->title;
 //$js = file_get_contents(__DIR__ . '/viewSuccess.js');
 //$this->registerJs($js);
-$this->registerCss(".pdf-msg a { color: blue; text-decoration: none; }");
 ?>
 <section class="page-section" id="about">
     <div class="container relative">
@@ -34,4 +33,3 @@ $this->registerCss(".pdf-msg a { color: blue; text-decoration: none; }");
     </div>
 
 </section>
-<?= Html::hiddenInput('pid', $pid, ['id' => 'pid']) ?>

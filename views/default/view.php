@@ -28,7 +28,13 @@ $this->registerCss("table, th, td {border: 1px solid black; border-collapse: col
                     'attributes' => [
                         'id',
                         'name',
-                        'date_created',
+//                        'date_created',
+                        [                                                  // the owner name of the model
+                            'attribute' => 'date_created',
+                            'value' => date('d/m/Y H:i:s', strtotime($model->date_created)),
+//                            'contentOptions' => ['class' => 'bg-red'],     // HTML attributes to customize value tag
+                            'captionOptions' => ['tooltip' => 'Tooltip'],  // HTML attributes to customize label tag
+                        ],
                         'owner_name',
                         'owner_email:email',
                         'owner_phone',
@@ -67,12 +73,12 @@ $this->registerCss("table, th, td {border: 1px solid black; border-collapse: col
 
                     ?>
                     <tr>
-                        <th><a href="#q" class="viewmore" qid="<?= $question->id ?>"><?= $question->content; ?> - <?= $project_question_answer->points ?> điểm</a></th>
+                        <th><a href="#q" class="viewmore" qid="<?= $question->id ?>"><?= $question->content; ?> (<?= $project_question_answer->points ?> điểm)</a></th>
                         <th style="<?php echo ($flag==1)?"background-color: red":"" ?>"></th>
-                        <th style="<?php echo ($flag==2)?"background-color: yellow":"" ?>"></th>
-                        <th style="<?php echo ($flag==3)?"background-color: lightgreen":"" ?>"></th>
-                        <th style="<?php echo ($flag==4)?"background-color: green":"" ?>"></th>
-                        <th style="<?php echo ($flag==5)?"background-color: blue":"" ?>"></th>
+                        <th style="<?php echo ($flag==2)?"background-color: orange":"" ?>"></th>
+                        <th style="<?php echo ($flag==3)?"background-color: yellow":"" ?>"></th>
+                        <th style="<?php echo ($flag==4)?"background-color: lightgreen":"" ?>"></th>
+                        <th style="<?php echo ($flag==5)?"background-color: green":"" ?>"></th>
                     </tr>
 
                 <?php endforeach; ?>

@@ -1,0 +1,14 @@
+/*body { background-color: #ebebeb; font-family: 'Times New Roman', Arial, sans-serif; letter-spacing: 1.3px; }*/
+body { background-color: transparent; font-family: 'Times New Roman', Arial, sans-serif; letter-spacing: 1.3px; }
+.help-block { display: none; }
+.container-title h1{ color: #FFF; }
+.container-title p {
+    margin-bottom: 0px;
+    text-transform: uppercase;
+}
+#newsletter-block .container{ width: 100%; }
+.alert-info { background-color: transparent; font-weight: bold; }
+.alert-info .close {display: none}
+.container-title h1{ text-transform: uppercase; font-size: 24px; font-weight: bold; margin-top: 0px; margin-bottom: 0px; }
+.size12{ font-size: 12px !important; }
+.free-text { font-weight: bold; font-size: 18px; margin-top: 6px; }
