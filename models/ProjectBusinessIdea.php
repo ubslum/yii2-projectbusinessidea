@@ -18,6 +18,7 @@ use Yii;
  */
 class ProjectBusinessIdea extends \yii\db\ActiveRecord
 {
+    public $link;
     /**
      * @inheritdoc
      */
@@ -33,7 +34,7 @@ class ProjectBusinessIdea extends \yii\db\ActiveRecord
     {
         return [
             [['name', 'owner_name', 'owner_email'], 'required'],
-            [['date_created'], 'safe'],
+            [['date_created', 'link'], 'safe'],
             [['points', 'status'], 'integer'],
             [['name', 'owner_name', 'owner_email'], 'string', 'max' => 255],
             [['owner_email'], 'email'],
@@ -55,6 +56,7 @@ class ProjectBusinessIdea extends \yii\db\ActiveRecord
             'owner_phone' => 'Số điện thoại',
             'points' => 'Điểm',
             'status' => 'Tình trạng',
+            'link' => 'Đường dẫn'
         ];
     }
 
